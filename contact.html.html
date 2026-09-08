@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<title>ติดต่อเรา - เว็บไซต์ท่องเที่ยวจังหวัดสุราษฎร์ธานี</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft YaHei';
+  margin: 0;
+  background-color: #f8f6ff;
+  color: #333;
+}
+
+/* Header Image Container */
+header {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+header img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  background-color: #8b6ff2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #ffffff;
+  padding: 16px 24px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover, .navbar a.active {
+  background-color: #6c47eb;
+  color: #fff;
+}
+
+/* Container Layout */
+.container {  
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.main-contact {
+  flex: 58%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(138, 118, 228, 0.12);
+}
+
+.side-contact {
+  flex: 38%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(138, 118, 228, 0.12);
+}
+
+/* Headings Design */
+h2 {
+  color: #6c47eb;
+  border-bottom: 3px solid #8b6ff2;
+  padding-bottom: 10px;
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+h3 {
+  color: #4a3e7d;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* 🌟 สไตล์แบบฟอร์มติดต่อ (Contact Form) 🌟 */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #4a3e7d;
+  font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #dcd6f7;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #fbfaff;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8b6ff2;
+  box-shadow: 0 0 8px rgba(139, 111, 242, 0.25);
+  background-color: #ffffff;
+}
+
+.btn-submit {
+  background-color: #6c47eb;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(108, 71, 235, 0.2);
+  align-self: flex-start;
+}
+
+.btn-submit:hover {
+  background-color: #5532d1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(108, 71, 235, 0.35);
+}
+
+/* 🌟 การ์ดข้อมูลการติดต่อ 🌟 */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background-color: #f8f6ff;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #8b6ff2;
+}
+
+.info-item .icon {
+  font-size: 1.5rem;
+}
+
+.info-item .details h4 {
+  margin: 0 0 5px 0;
+  color: #4a3e7d;
+}
+
+.info-item .details p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* โซเชียลมีเดีย */
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+  padding: 10px;
+  background-color: #f0ecff;
+  color: #6c47eb;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: #8b6ff2;
+  color: #ffffff;
+}
+
+/* แผนที่ */
+.map-box {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-top: 15px;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 220px;
+  border: 0;
+}
+
+/* Footer */
+footer {
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #8b6ff2, #6c47eb);
+  color: white;
+  margin-top: 50px;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .btn-submit {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header Banner -->
+<header>
+  <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80" alt="ติดต่อเรา">
+</header>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <a href="Website.html">หน้าแรก</a>
+  <a href="Teepak.HTML.html">แนะนำที่พัก</a>
+  <a href="Food.HTML.html">อาหาร</a>
+  <a href="Travel.html">สถานที่ท่องเที่ยว</a>
+  <a href="contact.HTML.html" class="active">ติดต่อเรา</a>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+  
+  <!-- ฝั่งซ้าย: ฟอร์มส่งข้อความ -->
+  <main class="main-contact">
+    <h2>✉️ ส่งข้อความถึงเรา</h2>
+    <p>หากคุณมีข้อสงสัย ติชม หรือต้องการสอบถามข้อมูลการท่องเที่ยวเพิ่มเติม สามารถส่งข้อความผ่านแบบฟอร์มด้านล่างนี้ได้ทันทีครับ</p>
+
+    <form class="contact-form" action="#" method="post">
+      <div class="form-group">
+        <label for="fullname">ชื่อ - นามสกุล *</label>
+        <input type="text" id="fullname" name="fullname" placeholder="กรุณากรอกชื่อ-นามสกุลของคุณ" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">อีเมลติดต่อ *</label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">เบอร์โทรศัพท์</label>
+        <input type="tel" id="phone" name="phone" placeholder="081-XXX-XXXX">
+      </div>
+
+      <div class="form-group">
+        <label for="subject">หัวข้อที่ต้องการติดต่อ *</label>
+        <input type="text" id="subject" name="subject" placeholder="เช่น สอบถามข้อมูลการเดินทาง / ลงโฆษณา" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">รายละเอียดข้อความ *</label>
+        <textarea id="message" name="message" rows="5" placeholder="พิมพ์ข้อความของคุณที่นี่..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">ส่งข้อความ</button>
+    </form>
+  </main>
+
+  <!-- ฝั่งขวา: ช่องทางการติดต่อ & แผนที่ -->
+  <aside class="side-contact">
+    <h2>📌 ช่องทางการติดต่อ</h2>
+    
+    <div class="info-list">
+      <div class="info-item">
+        <span class="icon">📍</span>
+        <div class="details">
+          <h4>ที่อยู่สำนักงาน</h4>
+          <p>ศูนย์บริการข้อมูลการท่องเที่ยว อ.เมือง จ.สุราษฎร์ธานี 84000</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">📞</span>
+        <div class="details">
+          <h4>เบอร์โทรศัพท์</h4>
+          <p>081-XXX-XXXX</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">🟢</span>
+        <div class="details">
+          <h4>Line Official</h4>
+          <p>@Nidoll_salis</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">✉️</span>
+        <div class="details">
+          <h4>อีเมล</h4>
+          <p>contact@email.com</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">🕒</span>
+        <div class="details">
+          <h4>เวลาทำการ</h4>
+          <p>เปิดให้บริการทุกวัน 09:00 - 18:00 น.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>ติดตามโซเชียลมีเดีย</h3>
+    <div class="social-buttons">
+      <a href="#" class="social-btn">Facebook</a>
+      <a href="#" class="social-btn">Instagram</a>
+      <a href="#" class="social-btn">YouTube</a>
+    </div>
+
+    <h3>แผนที่การเดินทาง</h3>
+    <div class="map-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252438.38423233817!2d99.19163273188556!3d9.138244036577583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305400be74f4cb31%3A0x10223bc2c366470!2sMueang%20Surat%20Thani%20District%2C%20Surat%20Thani!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </aside>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <h3>📌 ศูนย์บริการข้อมูลการท่องเที่ยวจังหวัดสุราษฎร์ธานี</h3>
+  <p>📞 เบอร์โทรศัพท์: 081-XXX-XXXX | 🟢 Line ID: @Nidoll_salis</p>
+  <p>✉️ อีเมล: contact@email.com | 🕒 เวลาทำการ: เปิดทุกวันตั้งแต่ 09:00 - 18:00 น.</p>
+</footer>
+
+</body>
+</html>

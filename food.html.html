@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<title>อาหารและร้านอาหารแนะนำ จังหวัดสุราษฎร์ธานี</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft YaHei';
+  margin: 0;
+  background-color: #f8f6ff;
+  color: #333;
+}
+
+/* Header Image Container */
+header {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+header img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  background-color: #8b6ff2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #ffffff;
+  padding: 16px 24px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover, .navbar a.active {
+  background-color: #6c47eb;
+  color: #fff;
+}
+
+/* Column container */
+.container {  
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 20px auto;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.side {
+  flex: 30%;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(138, 118, 228, 0.12);
+}
+
+.main {
+  flex: 68%;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(138, 118, 228, 0.12);
+}
+
+/* 🌟 สไตล์รูปภาพตบแต่งใหม่ 🌟 */
+.img-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #e2e8f0;
+}
+
+.img-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(138, 118, 228, 0.25);
+}
+
+.img-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.img-card:hover img {
+  transform: scale(1.04);
+}
+
+/* Headings Design */
+h2 {
+  color: #6c47eb;
+  border-bottom: 3px solid #8b6ff2;
+  padding-bottom: 8px;
+  margin-top: 10px;
+}
+
+h3 {
+  color: #4a3e7d;
+  margin-top: 20px;
+}
+
+h4 {
+  color: #5d4ebd;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* 🌟 ปุ่มกดดูลิงก์อาหาร/ร้านอาหาร 🌟 */
+.btn-link {
+  display: inline-block;
+  background-color: #6c47eb;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(108, 71, 235, 0.2);
+}
+
+.btn-link:hover {
+  background-color: #5532d1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(108, 71, 235, 0.35);
+}
+
+/* 🌟 Gallery Section 🌟 */
+.gallery-section {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #f0ecff;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(138, 118, 228, 0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item .desc-box {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.gallery-item .desc {
+  font-weight: bold;
+  color: #4a3e7d;
+  margin-bottom: 5px;
+}
+
+.gallery-item .sub-desc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.gallery-item .btn-sm {
+  background-color: #8b6ff2;
+  color: white;
+  padding: 8px 14px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.gallery-item .btn-sm:hover {
+  background-color: #6c47eb;
+}
+
+/* Footer */
+footer {
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #8b6ff2, #6c47eb);
+  color: white;
+  margin-top: 50px;
+  line-height: 1.8;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80" alt="อาหารและร้านอาหารจังหวัดสุราษฎร์ธานี">
+</header>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <a href="Website.html">หน้าแรก</a>
+  <a href="Teepak.HTML.html">แนะนำที่พัก</a>
+  <a href="Food.HTML.html" class="active">อาหาร</a>
+  <a href="Travel.html">สถานที่ท่องเที่ยว</a>
+  <a href="contact.HTML.html">ติดต่อเรา</a>
+</nav>
+
+<!-- Content Container -->
+<div class="container">
+  
+  <!-- Sidebar -->
+  <aside class="side">
+    <h2>ร้านซีฟู้ด & ของฝากขึ้นชื่อ</h2>
+    
+    <h3>1. หอยนางรมสดสุราษฎร์</h3>
+    <h4>📍 ร้านลำพู / ร้านเคียงเล (อ.กาญจนดิษฐ์)</h4>
+    <div class="img-card">
+      <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="หอยนางรมสดสุราษฎร์ธานี" loading="lazy">
+    </div>
+    <p>ลิ้มลองหอยนางรมตัวใหญ่ไซส์ยักษ์ เนื้อหวานฉ่ำ ส่งตรงจากฟาร์มกาญจนดิษฐ์ ทานคู่กับยอดกระถิน กระเทียม และน้ำพริกเผารสเด็ด</p>
+    <a href="https://www.google.com/search?q=ร้านอาหารทะเล+กาญจนดิษฐ์+สุราษฎร์ธานี" target="_blank" class="btn-link">🦪 ดูพิกัดร้านซีฟู้ดแนะนำ</a>
+
+    <h3>2. กุ้งแม่น้ำตาปีเผา</h3>
+    <h4>📍 ร้านป่าไม้ (อ.เมืองสุราษฎร์ธานี)</h4>
+    <div class="img-card">
+      <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80" alt="กุ้งแม่น้ำตาปีเผา" loading="lazy">
+    </div>
+    <p>กุ้งแม่น้ำธรรมชาติตัวโต มันกุ้งเยิ้มๆ เผาด้วยเตาอั้งโล่หอมกรุ่น ทานคู่กับน้ำจิ้มซีฟู้ดรสจัดจ้านริมแม่น้ำตาปี</p>
+    <a href="https://www.google.com/search?q=ร้านกุ้งแม่น้ำตาปี+สุราษฎร์ธานี" target="_blank" class="btn-link">🦐 ดูพิกัดร้านกุ้งเผาตาปี</a>
+
+    <h3>3. ไข่เค็มไชยา (ของฝาก)</h3>
+    <h4>📍 ตลาดไข่เค็มไชยา</h4>
+    <div class="img-card">
+      <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="ไข่เค็มไชยา" loading="lazy">
+    </div>
+    <p>ไข่เค็มของดีประจำจังหวัด ทำจากไข่เป็ดเลี้ยงธรรมชาติ พอกด้วยดินสอพองผสมเถ้าแกลบ ไข่แดงมันวาว ไม่เค็มจัด เหมาะซื้อเป็นของฝาก</p>
+    <a href="https://www.google.com/search?q=ร้านขายไข่เค็มไชยา+สุราษฎร์ธานี" target="_blank" class="btn-link">🥚 ดูร้านขายไข่เค็มไชยา</a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <h2>ร้านอาหารและเมนูเด็ดที่ไม่ควรพลาด</h2>
+    
+    <h3>1. ผัดไทยไชยา และผัดไทยท่าฉาง</h3>
+    <h4>📍 ร้านผัดไทยไชยา (ป้าสุ) / ร้านผัดไทยท่าฉาง</h4>
+    <div class="img-card">
+      <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80" alt="ผัดไทยไชยาสุราษฎร์ธานี" loading="lazy">
+    </div>
+    <p>ผัดไทยสูตรเอกลักษณ์ประจำจังหวัด ผัดเส้นจันทน์นุ่มๆ เข้ากับน้ำซอสปรุงรสเข้มข้นที่ผสมกะทิสด กุ้งแห้ง และพริกแกง ทำให้ได้รสชาติหวาน มัน เปรี้ยว เผ็ด กลมกล่อมโดยไม่ต้องปรุงเพิ่ม</p>
+    <a href="https://www.google.com/search?q=ร้านผัดไทยไชยา+สุราษฎร์ธานี" target="_blank" class="btn-link">🍜 ดูพิกัดร้านผัดไทยชื่อดัง</a>
+
+    <h2>ร้านอาหารพื้นบ้านปักษ์ใต้</h2>
+    <h3>2. แกงส้มยอดมะพร้าวอ่อนกุ้งสด & แกงไตปลารสจัดจ้าน</h3>
+    <h4>📍 ร้านลัคกี้ภัตตาคาร / ร้านอาหารอ่าวไทย</h4>
+    <div class="img-card">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="อาหารใต้รสจัดจ้าน สุราษฎร์ธานี" loading="lazy">
+    </div>
+    <p>สัมผัสรสชาติอาหารปักษ์ใต้แท้ๆ เครื่องแกงใต้ทำเองเข้มข้น หอมขมิ้นและพริกสด เมนูแนะนำ ได้แก่ แกงส้มกุ้งยอดมะพร้าว, แกงไตปลาทรงเครื่อง, ใบเหลียงผัดไข่ และหมูกะปิ ทานคู่กับผักเหนาะสดๆ</p>
+    <a href="https://www.google.com/search?q=ร้านอาหารใต้+เมืองสุราษฎร์ธานี" target="_blank" class="btn-link">🌶️ ดูพิกัดร้านอาหารใต้แนะนำ</a>
+  </main>
+
+</div>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <h2>ร้านอาหารและขนมท้องถิ่นเพิ่มเติม</h2>
+  <div class="gallery">
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80" alt="ขนมจีนน้ำยาปู" loading="lazy">
+      <div class="desc-box">
+        <div class="desc">ร้านขนมจีนแม่ติ่ง / ขนมจีนหน้าเมือง</div>
+        <div class="sub-desc">ขนมจีนน้ำยาปู & น้ำยาใต้เข้มข้น</div>
+        <a href="https://www.google.com/search?q=ร้านขนมจีน+สุราษฎร์ธานี" target="_blank" class="btn-sm">ดูพิกัดร้าน</a>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="กะปิแท้ไชยา" loading="lazy">
+      <div class="desc-box">
+        <div class="desc">เคยจี๊บ / กะปิแท้ไชยา</div>
+        <div class="sub-desc">ของฝากกะปิหอมตากแห้งคุณภาพดี</div>
+        <a href="https://www.google.com/search?q=กะปิแท้ไชยา+สุราษฎร์ธานี" target="_blank" class="btn-sm">ดูรายละเอียด</a>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80" alt="ขนมจากกะทิสด" loading="lazy">
+      <div class="desc-box">
+        <div class="desc">ขนมจากกะทิสดริมทาง</div>
+        <div class="sub-desc">หอมกลิ่นย่างใบจาก หวานมันมะพร้าวอ่อน</div>
+        <a href="https://www.google.com/search?q=ขนมจาก+สุราษฎร์ธานี" target="_blank" class="btn-sm">ดูรายละเอียด</a>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="เงาะโรงเรียนนาสาร" loading="lazy">
+      <div class="desc-box">
+        <div class="desc">เงาะโรงเรียนบ้านนาสาร</div>
+        <div class="sub-desc">ผลไม้ขึ้นชื่อ เนื้อหนา กรอบ หวานร่อน</div>
+        <a href="https://www.google.com/search?q=เงาะโรงเรียนนาสาร+สุราษฎร์ธานี" target="_blank" class="btn-sm">ดูรายละเอียด</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <h3>📌 ช่องทางการติดต่อแนะนำร้านอาหาร / ลงโฆษณา</h3>
+  <p>📞 เบอร์โทรศัพท์: 081-XXX-XXXX</p>
+  <p>🟢 Line ID: @Nidoll_salis</p>
+  <p>✉️ อีเมล: contact@email.com</p>
+  <p>🕒 เวลาทำการ: เปิดทุกวันตั้งแต่ 09:00 - 18:00 น.</p>
+</footer>
+
+</body>
+</html>
